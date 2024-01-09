@@ -20,6 +20,13 @@ class Character{
     }
 }
 
+
+class Director extends Character{
+    deleteActor(actor){
+       return actors.filter(a => a.name != actor.name)
+    }
+}
+
 const actor1 = new Character(
     "Monica",
     "CatWomen",
@@ -31,3 +38,17 @@ const actor2 = new Character(
     "Pink Bunny",
     "No bunny at all. Always no bunny at all."
 );
+
+const actor3 = new Character(
+    "Gunther",
+    "Charlie Brown",
+    "Here are your candies Rachel"
+);
+
+const actors = [actor1, actor2, actor3];
+
+const director = new Director(
+    "Ross",
+    "Spudnik",
+    "I'm a spuda and sputnik.. so.. Spud-nik. Spudnik"
+)
