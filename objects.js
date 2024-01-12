@@ -1,19 +1,18 @@
-function Portal(domainName){
-
-    const website = {}
-    
-    website.domainName = domainName;
-    website.earning = 0;
-
-    return website;
-
+const createWebsite = function(domainName){
+    return {
+        domainName : domainName,
+        earning : 0,
+        subscribe: function(numOfSubscribersAdded){
+            this.earning += numOfSubscribersAdded*4;
+        },
+        unSubscribe: function(numOfSubscribersLost){
+            this.earning -= numOfSubscribersLost*4;
+        }
+    };
 }
 
-const ignou = Portal("www.ignou.com");
-const shopify = Portal("Shopify");
+const hingoo = createWebsite("hingoo");
 
-shopify.subscribe(8);
-ignou.subscribe(6);
+hingoo.subscribe(7)
 
-console.log(ignou.earning);
-console.log(shopify);
+console.log(hingoo);
