@@ -5,8 +5,14 @@ function Character(name, role, dialog){
         this.dialog = dialog;
         this.time = 7;
         this.paid = 20000;
-
 }
+
+function Director(name, role, dialog){
+    Character.apply(this, [name, role, dialog]);
+}
+
+Director.prototype = Object.create(Character.prototype);
+
 Character.prototype.action= function(){
     console.log(this.dialog);
 }
@@ -34,19 +40,13 @@ const actor3 = new Character(
     "Here are your candies Rachel"
 );
 
-const actors = [actor1, actor2, actor3];
+let actors = [actor1, actor2, actor3];
 
-const Car = function(name, model){
-    this.name = name;
-    this.model = model;
-    return this.name;
-};
+Director.prototype.deleteActor = function(u){
+    actors = actors.filter(actor=>u.name != actor.name)
+}
 
-const Animal = function(species, legs){
-    this.species = species;
-    this.legs = legs;
-};
+const ross = new Director("Ross", "Spudnik", "I'm a Spud and Sputnik. So... Spud-nik. Spudnik");
 
-const result = Car.apply(this, ["Sonata", 2009]);
 
-console.log(result);
+
