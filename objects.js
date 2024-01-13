@@ -36,6 +36,17 @@ const actor3 = new Character(
 
 const actors = [actor1, actor2, actor3];
 
-actor1.action();
-actor1.cut();
-console.log(actor1.time)
+const Car = function(name, model){
+    this.name = name;
+    this.model = model;
+    return this.name;
+};
+
+const Animal = function(species, legs){
+    this.species = species;
+    this.legs = legs;
+};
+
+const result = Car.apply(this, ["Sonata", 2009]);
+
+console.log(result);
